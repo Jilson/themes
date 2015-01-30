@@ -34,5 +34,6 @@
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/modernizr-2.6.2.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/custom.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/respond.js"></script>
 <?php wp_footer(); ?>
 </html>
