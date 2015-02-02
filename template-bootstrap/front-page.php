@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-		<?php if(get_field('slides')): ?>
+		<?php $row = 1; if(get_field('slides')): ?>
 			<section class="section-feature">
 				<div class="container">
 					<div class="col-md-12">
@@ -11,7 +11,7 @@
 							</ol>
 							<div class="carousel-inner">
 								<?php while(has_sub_field('slides')):  $background = get_sub_field('slide_background');?>
-									<div class="item active">
+									<div class="item <?php if($row == 1) { echo 'active'; } ?>">
 										<img src="<?php echo $background['url']; ?>" alt="<?php echo $background['alt']; ?>">
 										<div class="carousel-caption">
 											<h2><?php the_sub_field('main_title'); ?></h2>
@@ -19,7 +19,7 @@
 											<a class="button" href="<?php the_sub_field('link'); ?>"><?php the_sub_field('link_text'); ?></a>
 										</div>
 									</div>
-								<?php endwhile; ?>
+								<?php $row++; endwhile; ?>
 							</div>
 							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 								<span class="glyphicon glyphicon-chevron-left"></span>
