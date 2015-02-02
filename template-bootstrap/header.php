@@ -21,7 +21,7 @@
     	<div class="ui-secondary">
         	<div class="container clearfix">
 				<div class="branding col-md-12">
-						<h2 class="logo"><a href="/"><?php if(get_field('logo', 'option')) { ?><?php $image = get_field('logo', 'option'); if( !empty($image) ): ?><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /><?php endif; ?><?php } else { bloginfo('name'); } ?></a></h2>
+					<h2 class="logo"><a href="/"><?php if(get_field('logo', 'option')) { $image = get_field('logo', 'option'); ?><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /><?php } else { bloginfo('name'); } ?></a></h2>
                 </div>
 				<nav class="navbar-wrapper navbar-default navbar-static-top col-md-12" role="navigation">
 					<div class="navbar-header">
