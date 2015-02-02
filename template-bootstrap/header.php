@@ -8,7 +8,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favico.ico" type="image/x-icon" />
 <script type="text/javascript" src="http://fast.fonts.net/jsapi/54712a40-e515-4ca2-8010-8021f9fe5182.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" />
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
