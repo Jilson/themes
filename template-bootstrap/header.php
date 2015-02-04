@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" />
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <?php include_once(TEMPLATEPATH . "/includes/analytics.php") ?>
 <?php wp_head(); ?>
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
 </head>
 <body <?php body_class($class); ?>>
     <header class="header">
@@ -25,7 +25,12 @@
                 </div>
 				<nav class="navbar-wrapper navbar-default navbar-static-top col-md-12" role="navigation">
 					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
 					</div>
 					<?php  wp_nav_menu( array( 'menu' => 'Navigation', 'theme_location' => 'Navigation', 'depth' => 2, 'container' => 'div', 'container_class' => 'collapse navbar-collapse', 'container_id' => 'bs-example-navbar-collapse-1', 'menu_class' => 'nav navbar-nav', 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker'  => new wp_bootstrap_navwalker() ) ); ?>
 				</nav>

@@ -26,7 +26,7 @@
 					<p>Copyright &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | <a href="http://www.westcounty.com/web-services/" title="Web Design & Development by West County Net" target="_blank">Web Development</a> &#38; <a href="http://www.westcounty.com/web-services/marketing-seo/search-engine-optimization/" title="Santa Rosa SEO Company" target="_blank">SEO</a> By <a href="http://www.westcounty.com" title="West County Net Santa Rosa" target="_blank">West County Net</a></p>
                 </div>
             </div>
-        </section><!-- end footer-secondary -->
+        </section><!-- end footer-copyright -->
     </footer><!-- end page-footer -->
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 

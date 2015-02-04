@@ -1,5 +1,4 @@
 <?php
-
 /*** Theme setup ***/
 add_filter('widget_text', 'do_shortcode');
 add_theme_support( 'post-thumbnails' );
@@ -32,5 +31,4 @@ if (function_exists('register_sidebar')) {
         'after_title' => '</h2>'
     ));
 }
-
 ?>
