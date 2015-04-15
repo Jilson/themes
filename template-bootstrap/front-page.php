@@ -22,10 +22,10 @@
 								<?php $row++; endwhile; ?>
 							</div>
 							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
+								<span><i class="fa fa-chevron-left"></i></span>
 							</a>
 							<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
+								<span><i class="fa fa-chevron-right"></i></span>
 							</a>
 						</div>
 					</div>

@@ -28,6 +28,12 @@ Copyright: (c) 2014 Julian Wilson Holmes & West County Net Inc.
 /* Structure */
 .section-content { padding-top: 20px; padding-bottom: 20px; }
 
+/* Feature */ 
+.carousel-control.left span, .carousel-control.right span {position: absolute;top: 50%;margin-top: -20px;width: 50px;height: 50px;display: table;}
+.carousel-control.left span {left:0;}
+.carousel-control.right span {right:0;}
+.carousel-control.left i, .carousel-control.right i {font-size:40px;color: #232323;opacity: 1;display: table-cell;vertical-align: middle;} 
+
 /* Page Styles */
 .page-body .bullet { list-style-position: outside; }
 .page-body .bullet li:before { content: "\002022"; margin-right: 10px;  color: #2e9cdd; }
