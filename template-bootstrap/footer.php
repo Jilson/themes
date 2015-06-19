@@ -30,7 +30,6 @@
     </footer><!-- end page-footer -->
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/modernizr-2.6.2.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/custom.js"></script>
