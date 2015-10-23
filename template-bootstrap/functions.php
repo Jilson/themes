@@ -9,6 +9,8 @@ require_once('includes/wp_bootstrap_navwalker.php');
 add_action('wp_head', 'add_google_rel_author');
 function add_google_rel_author() { echo '<link rel="author" href="" />'; }
 
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
 /*** Sidebars ***/
 if (function_exists('register_sidebar')) {
     register_sidebar(array(
