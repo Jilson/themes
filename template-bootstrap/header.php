@@ -6,13 +6,10 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <meta content="True" name="HandheldFriendly">
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favico.ico" type="image/x-icon" />
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" />
+<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<?php include_once(TEMPLATEPATH . "/includes/analytics.php") ?>
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
+<?php include_once(TEMPLATEPATH . "/includes/analytics.php") ?>
 </head>
 <body <?php body_class($class); ?>>
     <header class="header">
