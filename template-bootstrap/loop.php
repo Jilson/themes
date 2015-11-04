@@ -1,5 +1,5 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<div <?php post_class('hentry post'); ?> id="post_<?php the_ID(); ?>">
+<article <?php post_class('hentry post'); ?> id="post_<?php the_ID(); ?>">
 	<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 	<div class="post-meta">
 		<div class="meta"><i class="fa fa-clock-o"></i> <?php the_time(__('M j')) ?></div>
@@ -16,6 +16,6 @@
 		<?php the_excerpt(); ?>
 		<a href="<?php the_permalink() ?>" class="continue-reading"><i class="fa fa-angle-double-right fa-fw"></i>Continue Reading</a>
 	</div>
-</div>
+</article>
 <?php endwhile; endif;  ?>
 
