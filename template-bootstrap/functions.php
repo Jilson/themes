@@ -20,10 +20,11 @@ if( function_exists('acf_add_options_page') ) {
 // Enqueue styles and scripts
 function theme_name_scripts() {
 
-    wp_enqueue_style( 'style', get_stylesheet_uri() );
+    
     wp_enqueue_style( 'style-slick', '//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css' );
     wp_enqueue_style( 'style-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
     wp_enqueue_style( 'style-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
+    wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     wp_dequeue_script( 'jquery' );
 
