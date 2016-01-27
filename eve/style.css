@@ -9,7 +9,7 @@ Copyright: (c) 2016 Julian Wilson Holmes, Stewart Gordon & West County
 */
 	
 /* Font-Face
-
+font-family: 'Hind', sans-serif;
 */
 
 /* Basic */
@@ -21,17 +21,29 @@ Copyright: (c) 2016 Julian Wilson Holmes, Stewart Gordon & West County
 .no-pad-left { padding-left: 0 !important; margin-left: 0 !important; }
 .no-pad-right { padding-right: 0 !important; margin-right: 0 !important; }
 
+body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
+
+.v-center {    position: relative;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+.ta-c {text-align: center;}
+.tt-u {text-transform: uppercase;}
+
+/* Font Styles */
+.content-primary p {font-size: 16px;line-height: 1.7;margin-top: 0;margin-bottom: 30px;}
+.content-primary li {font-size: 16px;line-height: 1.7;margin-top: 0;margin-bottom: 10px;}
+
 /* Buttons */
 .btn-black, .btn-black:focus, .btn-black:active, .gform_wrapper input[type="submit"] { color: #fff;  background: #000; }
 .btn-black:hover { color: #ddd;  }
 
 /* Structure */
-.section-content { padding-top: 20px; padding-bottom: 20px; }
+.section-content { padding-top: 30px; padding-bottom: 30px; }
 
 /* Header */
+.header {background: #fff;border-bottom:1px solid #444;}
+
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {background:none;}
-.nav>li>a {padding: 10px 12px;}
-.navbar-nav>li>a, .dropdown-menu>li>a  {text-decoration: none;letter-spacing: .025em;font-family:'Brandon Grot W01 Medium'; font-size: 16px; color: #393282 !important; text-transform: uppercase;} 
+.nav>li>a {padding: 20px 15px;}
+.navbar-nav>li>a, .dropdown-menu>li>a  {text-decoration: none;letter-spacing: .025em; font-size: 18px; color: #111 !important; text-transform: uppercase;} 
 .navbar-nav>li.dropdown .arrow-down {top: 0;cursor:pointer;z-index:99;display: block; text-align: center; position: absolute; right: 0; height: 42px; width: 42px; padding: 10px;}
 .navbar-nav>li.dropdown .arrow-down.clicked .fa {-ms-transform: rotate(90deg);  -webkit-transform: rotate(90deg);   transform: rotate(90deg);}
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {background-color:#e3edc2;}
@@ -44,42 +56,69 @@ Copyright: (c) 2016 Julian Wilson Holmes, Stewart Gordon & West County
 
 
 /* Feature */ 
-.carousel-control.left span, .carousel-control.right span {position: absolute;top: 50%;margin-top: -20px;width: 50px;height: 50px;display: table;}
-.carousel-control.left span {left:0;}
-.carousel-control.right span {right:0;}
-.carousel-control.left i, .carousel-control.right i {font-size:40px;color: #232323;opacity: 1;display: table-cell;vertical-align: middle;} 
+.feature {position: relative;}
+.feature .slide {height: 600px;width: 100%;background-size:cover;background-repeat:no-repeat; background-position:center;}
+.feature .slide .container {height: 100%;}
+.feature .slide .slide-content {}
+.feature .slick-arrow {z-index: 9;position: absolute;top: 50%;border:none;background:none; color: #fff;font-size: 30px;}
+.feature .slick-arrow.slickNext {right: 50px;}
+.feature .slick-arrow.slickPrev {left: 50px;}
 
 /* Page Styles */
 .page-body .bullet { list-style-position: outside; }
 .page-body .bullet li:before { content: "\002022"; margin-right: 10px;  color: #2e9cdd; }
-.page-body-header { overflow: hidden; position: relative; padding: 25px 0; background: #fff; }
+.page-body-header { overflow: hidden; position: relative; padding: 50px 0; background: #fff;background: #111;  background-size:cover;background-position:center;background-repeat:no-repeat; }
 .page-body-header .container { position: relative; z-index: 3; }
-.page-body-header h1 { font-size: 35px; color: #000000; margin: 0; }
-
+.page-body-header h1 { font-size: 36px; color: #fff; margin: 0; }
+.page-body-header #breadcrumbs {color: #fff;}
 /* Blog */
-.hentry, .post { margin-bottom: 40px; }
-.image-post img { width: 100%; height: auto; border-radius: 2px; border: 1px solid #e4e4e4; box-shadow: 0 1px 3px rgba(0,0,0,0.2); background: #fff; padding: 4px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-.image-post .attachment-thumbnail { max-width: 150px; }
-.post-meta { overflow: hidden; border: 1px solid #ededed; border-radius: 4px; background: #fafafa; margin-bottom: 30px; }
+.hentry, .post { margin-bottom: 40px; overflow:hidden; background: #fff; padding: 15px; border-radius: 3px;    border: 1px solid #CECECE;}
+.article-inner {padding: 0 15px; overflow: hidden;}
+
 .post-title { font-size: 30px; margin-bottom: 30px; }
-.post-feature-image { margin-bottom: 20px; }
-.continue-reading { font-size: 14px; font-weight: 700; }
-.post-feature-image img { border: 1px solid #e0e0e0; box-shadow: 0 0 10px rgba(0,0,0,.1); background: #fff; padding: 3px; border-radius: 4px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-.post-meta .meta { padding: 5px 10px; margin: 0; display: inline-block; float: left; border-right: 1px solid #f0f0f0; font-size: 13px; }
+
+.post-meta { overflow: hidden; margin-bottom: 15px; }
+.post-meta .meta { padding: 5px 0px; margin: 0; display: inline-block; float: left; font-size: 13px; }
+.post-meta .meta + .meta {padding-left: 10px;margin-left: 10px; border-left: 1px solid #f0f0f0;}
 .post-meta .meta i { margin-right: 3px; color: #6e6e6e; font-size: 15px; }
+
+.post-feature-image { margin-bottom: 20px; }
+.post-feature-image img {    -webkit-transition: opacity 0.2s linear;-moz-transition: opacity 0.2s linear;-o-transition: opacity 0.32s linear;transition: opacity 0.2s linear; }
+.post-feature-image img:hover {opacity: .8; }
+
+.continue-reading { font-size: 14px; font-weight: 700; }
+
 .blog-post .title { margin-bottom: 0; }
 .blog-post { border-bottom: 1px solid #ededed; padding-bottom: 15px; }
 .blog-post :last-child { margin-bottom: 0; }
+
 .widget_recent_entries li, .widget_categories li, .widget_archive li { border-bottom: 1px solid #ededed; padding: 5px 0 10px; margin-bottom: 7px; }
 .post-tags { border-top: 1px solid #ededed; padding-top: 15px; margin-bottom: 15px; }
 .next-prev-posts { margin-bottom: 30px; font-size: 16px; }
 
+/* Pagination */
+.paginate .page-numbers {  color: #2A2A2A ;  position: relative; float: left; padding: 6px 12px; margin-left: -1px; line-height: 1.42857143;  text-decoration: none; background-color: #fff; border: 1px solid #ddd;}
+.paginate .page-numbers.current { background: #2A2A2A; color: #fff;  }
+.paginate .page-numbers:hover {background: #2A2A2A; color: #fff;}
+
+.pagination {width: 100%;}
+
 /* Sidebar */
-.widget {  }
+.widget { background: #fff; padding: 30px; margin-bottom: 30px;   border-radius: 3px; border: 1px solid #CECECE;}
 .widget :last-child { margin-bottom: 0; }
 .widget .meta-date { font-size: 12px; color: #999; }
-.widget .widget-title { padding: 0 0 13px; }
+.widget .widget-title { padding: 0 0 13px; text-transform: uppercase; }
 .widget .gform_wrapper { max-width: 100%; padding: 15px; }
+
+.widget ul {list-style:none; margin: 0;padding: 0;}
+.widget ul li {margin-top: 10px;overflow:hidden;}
+.widget ul li + li {margin-top: 10px;    padding-top: 10px;    border-top: 1px solid #E8E8E8;}
+.widget ul li .fa {width: 20px;}
+
+.widget .widget-post-thumbnail {max-width:50px;float: left;margin-right: 15px;}
+.widget .widget-post-content {overflow:hidden;}
+.widget .widget-post-content h4 {margin: 0;}
+.widget .widget-post-content cite {font-style:normal;}
 
 /* Footer */
 .footer-copyright { text-align: center; font-size: 14px; }

@@ -8,7 +8,7 @@
 	</header>
 	<section class="section-content">
 		<div class="container clearfix">
-			<div class="content-primary col-md-9">
+			<div class="content-primary col-md-8">
 				<?php if ( have_posts() ) : ?>
 					<?php while ( have_posts() ) : the_post(); ?>    
 						<div <?php post_class(''); ?> id="post_<?php the_ID(); ?>">

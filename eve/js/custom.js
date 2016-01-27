@@ -6,4 +6,11 @@ $(document).ready(function(){
 		$(this).next('.inner-dropdown').slideToggle(200);
 	});
 });	
-	
+$(document).ready(function(){
+	$('section.feature').slick({
+	  infinite: true,
+	  slidesToShow: 1,
+	  prevArrow: '<button class="slickPrev"><i class="fa fa-chevron-left"></i></button>',
+	  nextArrow: '<button class="slickNext"><i class="fa fa-chevron-right"></i></button>'
+	});
+});	

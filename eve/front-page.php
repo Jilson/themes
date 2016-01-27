@@ -1,37 +1,32 @@
 <?php get_header(); ?>
-		<?php $row = 1; if(get_field('slides')): ?>
-			<section class="section-feature">
-				<div class="container">
-					<div class="col-md-12">
-					  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-							<ol class="carousel-indicators">
-								<?php while(has_sub_field('slides')): $i=0; ?>
-									<li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>" class="active"></li>
-								<?php $i++; endwhile; ?>
-							</ol>
-							<div class="carousel-inner">
-								<?php while(has_sub_field('slides')):  $background = get_sub_field('slide_background');?>
-									<div class="item <?php if($row == 1) { echo 'active'; } ?>">
-										<img src="<?php echo $background['url']; ?>" alt="<?php echo $background['alt']; ?>">
-										<div class="carousel-caption">
-											<h2><?php the_sub_field('main_title'); ?></h2>
-											<h3><?php the_sub_field('sub_title'); ?></h3>
-											<a class="button" href="<?php the_sub_field('link'); ?>"><?php the_sub_field('link_text'); ?></a>
-										</div>
-									</div>
-								<?php $row++; endwhile; ?>
-							</div>
-							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-								<span><i class="fa fa-chevron-left"></i></span>
-							</a>
-							<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-								<span><i class="fa fa-chevron-right"></i></span>
-							</a>
+		
+		<section class="feature">
+		<?php if(get_field('slides')) { ?>
+			<?php while(has_sub_field('slides')) { ?>
+				<?php $slideImage = get_sub_field('slide_image'); ?>
+				<div class="slide" style="background-image:url('<?php echo $slideImage['url']; ?>')">
+					<div class="container">
+						<div class="col-md-6 slide-content v-center">
+							<h1><?php the_sub_field('slide_title'); ?></h1>
+							<h2><?php the_sub_field('slide_sub_title'); ?></h2>
+							<a href="<?php the_sub_field('slide_link'); ?>" class="btn btn-black">Read More</a>
 						</div>
 					</div>
 				</div>
-			</section>
-		<?php endif; ?>
+			<?php } ?>
+		<?php } ?>
+				<!-- Can remove the below slide when acf slides configured -->
+				<div class="slide" style="background-image:url('http://placehold.it/1920x600/2980B9/ffffff');">
+					<div class="container">
+						<div class="col-md-6 slide-content v-center">
+							<h1>Lorem Ipsum</h1>
+							<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt finibus diam faucibus lobortis. </h2>
+							<a href="#" class="btn btn-black">Read More</a>
+						</div>
+					</div>
+				</div>
+		</section>
+		
         <section class="section-content">
         	<div class="container clearfix">
             	<div class="content-primary col-md-9">

@@ -12,6 +12,11 @@ function add_google_rel_author() { echo '<link rel="author" href="" />'; }
 // Enable visibility options for gravity forms
 add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 
+add_action( 'after_setup_theme', 'baw_theme_setup' );
+function baw_theme_setup() {
+  add_image_size( 'blog-thumb', 795, 300, true ); // (cropped)
+}
+
 // Add default theme options page
 if( function_exists('acf_add_options_page') ) {
  acf_add_options_page();
@@ -31,7 +36,8 @@ function theme_name_scripts() {
     wp_enqueue_script( 'jquery_new', '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.5', true );
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), '3.2.0', true );
-    wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/jquery.touchSwipe.min.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'customJS', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'respond', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js', array(), '1.4.2', true );
     wp_enqueue_script( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js', array(), '1.5.7', true );
 }

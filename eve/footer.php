@@ -1,4 +1,4 @@
-    <footer class="footer">
+    <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
         <section class="footer-copyright">
         	<div class="container clearfix">
             	<div class="col-md-12">
