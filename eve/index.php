@@ -10,7 +10,10 @@
 <section class="section-content">
 	<div class="container clearfix">
 		<div class="content-primary col-md-8">
-			<?php get_template_part('loop'); ?>
+			<?php get_search_form( ); ?>
+			<div class="loop-container">
+				<?php get_template_part('loop'); ?>
+			</div>
 			<?php wp_reset_query(); ?>
 		</div>
 		<?php get_sidebar('blog'); ?>

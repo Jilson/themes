@@ -1,4 +1,3 @@
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<article <?php post_class('hentry post'); ?> id="post_<?php the_ID(); ?>" itemscope itemtype="http://schema.org/BlogPosting">
 		<?php if ( has_post_thumbnail()) : ?>
 			<div class="post-feature-image">
@@ -35,25 +34,3 @@
 			<p><a class="btn btn-black" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Continue Reading</a></p>
 		</div>
 	</article>
-<?php endwhile; ?>
-
-<div class="paginate">
-	<?php
-	global $wp_query;
-	$big = 999999999;
-	echo paginate_links( array(
-		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-		'format' => '?page=%#%',
-		'current' => max( 1, get_query_var('paged') ),
-		'total' => $wp_query->max_num_pages,
-		'prev_next' => false
-
-	) );
-	?>
-</div>
-<?php endif;  ?>				
-
-
-
-
-

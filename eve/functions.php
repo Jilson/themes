@@ -40,9 +40,67 @@ function theme_name_scripts() {
     wp_enqueue_script( 'customJS', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'respond', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js', array(), '1.4.2', true );
     wp_enqueue_script( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js', array(), '1.5.7', true );
+    wp_enqueue_script( 'ajax-pagination', get_template_directory_uri() . '/js/ajax-pagination.js', array('jquery'), '1.0.0', true );
+    wp_localize_script( 'ajax-pagination', 'ajaxpagination', array('ajaxurl' => admin_url( 'admin-ajax.php' ),'query_vars' => json_encode( $wp_query->query )));
+
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+
+/* Pagination */
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
+function my_ajax_pagination() {
+    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+
+
+    $query_vars['paged'] = $_POST['page'];
+    $query_vars['post_status'] = 'publish';
+
+    if(isset($_POST['search']) && !empty($_POST['search'])) {
+     $query_vars['s'] = $_POST['search'];
+    }
+    if(isset($_POST['cat']) && !empty($_POST['cat'])) {
+     $query_vars['cat'] = $_POST['cat'];
+    }
+    if(isset($_POST['auth']) && !empty($_POST['auth'])) {
+     $query_vars['author'] = $_POST['auth'];
+    }
+
+    $posts = new WP_Query( $query_vars );
+    $GLOBALS['wp_query'] = $posts;
+
+    add_filter( 'editor_max_image_size', 'my_image_size_override' );
+
+    if( ! $posts->have_posts() ) { 
+        echo 'Sorry, no posts were found!';
+    }
+    else {
+        while ( $posts->have_posts() ) { 
+            $posts->the_post();
+            get_template_part('loop', 'ajax');
+        }
+    }
+    
+
+    global $wp_query;
+    $big = 999999999;
+    echo '<div class="paginate">';
+    echo paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?page=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'total' => $wp_query->max_num_pages,
+        'prev_next' => false
+    ) );
+    echo '</div>';
+    die();
+}
+
+function my_image_size_override() {
+    return array( 795, 300 );
+}
 
 /*** Sidebars ***/
 if (function_exists('register_sidebar')) {

@@ -5,6 +5,7 @@
 	<div class="container clearfix">
 		<div class="col-md-12">
 			<h1><?php echo $curauth->nickname; ?></h1>
+			<span class="hidden curAuth"><?php echo $curauth->id; ?></span>
 			<?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<p id="breadcrumbs">','</p>'); } ?>
 		</div>
 	</div>
@@ -23,7 +24,9 @@
 		</div>
 		<h1 class="postby">Posts by <?php echo $curauth->nickname; ?></h1>
 		</div>
-		<?php get_template_part('loop'); ?>
+		<div class="loop-container">
+			<?php get_template_part('loop'); ?>
+		</div>
 		<?php wp_reset_query(); ?>
 		</div>
 		<?php get_sidebar('blog'); ?>

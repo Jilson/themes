@@ -71,8 +71,9 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 .page-body-header .container { position: relative; z-index: 3; }
 .page-body-header h1 { font-size: 36px; color: #fff; margin: 0; }
 .page-body-header #breadcrumbs {color: #fff;}
+
 /* Blog */
-.hentry, .post { margin-bottom: 40px; overflow:hidden; background: #fff; padding: 15px; border-radius: 3px;    border: 1px solid #CECECE;}
+.hentry, .post { margin-bottom: 40px; overflow:hidden; background: #fff; padding: 15px; border-radius: 3px; }
 .article-inner {padding: 0 15px; overflow: hidden;}
 
 .post-title { font-size: 30px; margin-bottom: 30px; }
@@ -96,6 +97,9 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 .post-tags { border-top: 1px solid #ededed; padding-top: 15px; margin-bottom: 15px; }
 .next-prev-posts { margin-bottom: 30px; font-size: 16px; }
 
+#loader {background: #fff;text-align: center;padding: 30px 0;}
+
+
 /* Pagination */
 .paginate .page-numbers {  color: #2A2A2A ;  position: relative; float: left; padding: 6px 12px; margin-left: -1px; line-height: 1.42857143;  text-decoration: none; background-color: #fff; border: 1px solid #ddd;}
 .paginate .page-numbers.current { background: #2A2A2A; color: #fff;  }
@@ -104,7 +108,7 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 .pagination {width: 100%;}
 
 /* Sidebar */
-.widget { background: #fff; padding: 30px; margin-bottom: 30px;   border-radius: 3px; border: 1px solid #CECECE;}
+.widget { background: #fff; padding: 30px; margin-bottom: 30px;   border-radius: 3px; }
 .widget :last-child { margin-bottom: 0; }
 .widget .meta-date { font-size: 12px; color: #999; }
 .widget .widget-title { padding: 0 0 13px; text-transform: uppercase; }
@@ -119,6 +123,9 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 .widget .widget-post-content {overflow:hidden;}
 .widget .widget-post-content h4 {margin: 0;}
 .widget .widget-post-content cite {font-style:normal;}
+
+
+
 
 /* Footer */
 .footer-copyright { text-align: center; font-size: 14px; }
@@ -147,13 +154,8 @@ blockquote.aligncenter, img.aligncenter, .wp-caption.aligncenter { margin-top: 7
 .wp-caption-text { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-size: 12px; font-style: italic; line-height: 1.5; margin: 9px 0; padding-right: 10px; }
 .wp-smiley { border: 0; margin-bottom: 0; margin-top: 0; padding: 0;}
 
+
 /* Forms */
-.search-menu form { position: relative; width: 100%; max-width: 270px; border: 1px solid #d3dae2; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font: 13px 'Proxima Nova', sans-serif; color: #404040; background: #fff; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.075); box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.075); -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; overflow: hidden; margin: 0; padding-right: 40px; }
-.search-menu form input[type="text"] { line-height: 24px; border: 0 none; border-radius: 0; width: auto; display: block; height: 24px; padding: 0; margin: 0; font-size: 13px; -webkit-box-shadow: none; box-shadow: none; background: transparent none; text-indent: 10px; float: left; outline: none; font-weight: 500; }
-.search-menu form .submit-container, .ui-primary .search-menu form input[type="submit"] { position: absolute; right: 0; top: 0; border: 0 none; background: transparent none; width: 30px; height: 24px; padding: 0; margin: 0; float: left; text-indent: -999em; overflow: hidden; -webkit-box-shadow: none; box-shadow: none; border-left: 1px solid #d3dae2; outline: none; text-transform: capitalize; }
-.search-menu form input[type="submit"] { border: 0 none; } 
-.search-menu form .submit-container:hover { color: #2393d9; }
-.search-menu form .submit-container:before { position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px; text-indent: 0; font-size: 16px; line-height: 0.75em; vertical-align: -15%; display: inline-block; font-family: 'FontAwesome'; font-style: normal; font-weight: normal; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f002"; }
 
 .gform_wrapper { display: block; clear: both; }
 .gform_wrapper .gform_heading { display: block; clear: both; }
@@ -179,6 +181,11 @@ blockquote.aligncenter, img.aligncenter, .wp-caption.aligncenter { margin-top: 7
 .gform_wrapper .validation_message { padding: 4px 12px; margin-bottom: 10px; font-size: 18px; color: #fff; background: red; float: left; width: 100%; position: relative; text-align: center; }
 .gform_wrapper .validation_message:before { content: ""; border-bottom: 10px solid red; border-left: 10px solid transparent; border-right: 10px solid transparent; position: absolute; top: -10px; left: 50%; margin-left: -10px; }
 
+/* Search Form */
+#searchform {display:flex;margin-bottom: 30px;}
+#searchform input.search-input {flex:1; padding-left: 15px;font-size: 16px;border:1px solid #CECECE;}
+#searchform .submit-container {}
+#searchform .submit-container input {font-size: 16px;height: 32px;border-left:none;background: #fff; border-top:1px solid #CECECE; border-right:1px solid #CECECE;border-bottom:1px solid #CECECE;}
 
 /* Comments */
 .comments ol { list-style: none; margin: 0; padding: 0; }
