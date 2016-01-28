@@ -39,7 +39,7 @@
 					</div><!-- End Box -->
 					<div class="form-box col-lg-4 col-md-4 col-sm-4">
 						<label for="email">Email <sup>*</sup></label>
-						<input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
+						<input class="form-control" type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
 					</div><!-- End Box -->
 					<div class="form-box col-lg-4 col-md-4 col-sm-4">
 						<label for="url">Website</label>

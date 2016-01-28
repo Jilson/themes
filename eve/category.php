@@ -12,6 +12,7 @@
 <section class="section-content">
 	<div class="container clearfix">
 		<div class="content-primary col-md-8">
+			<?php get_search_form( ); ?>
 			<div class="loop-container">
 				<?php get_template_part('loop'); ?>
 			</div>

@@ -47,7 +47,9 @@
 			beforeSend: function() {
 				$('.loop-container').find( 'article' ).remove();
 				$('.loop-container .paginate').remove();
-				$(document).scrollTop();
+				$('html, body').animate({
+				    scrollTop: $(".content-primary").offset().top
+				}, 0);
 				$('.loop-container').append( '<div id="loader">Loading New Posts...</div>' );
 			},
 			success: function( html ) {

@@ -9,25 +9,15 @@
 <section class="section-content">
 	<div class="container clearfix">
 		<div class="content-primary col-md-8">
-			<?php if ( have_posts() ) : ?>
 				<?php get_search_form( ); ?>
+			<?php if ( have_posts() ) : ?>
 				<div class="loop-container">
 					<?php get_template_part('loop'); ?>
 				</div>
 				<?php wp_reset_query(); ?>
 			<?php else : ?>
-				<div class="entry-content">
-					<div class="search">
-						<form method="get" id="searchform" action="<?php bloginfo('url'); ?>">
-							<fieldset>
-								<input name="s" type="text" onfocus="if(this.value=='Search with some different keywords') this.value='';" onblur="if(this.value=='') this.value='Search with some different keywords';" value="Search with some different keywords" />
-								<button type="submit"></button>
-							</fieldset>
-						</form>
-					</div>
-				</div>
 				<div class="post-meta">
-					Your search <strong><?php the_search_query(); ?></strong> did not match any documents
+					Your search <strong><?php the_search_query(); ?></strong> did not match any documents. Try again using different terms or maybe you can find what you want using the sites main navigation
 				</div>
 			<?php endif; ?>
 		</div>

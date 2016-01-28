@@ -14,3 +14,13 @@ $(document).ready(function(){
 	  nextArrow: '<button class="slickNext"><i class="fa fa-chevron-right"></i></button>'
 	});
 });	
+$(document).ready(function(){
+	$('button.navbar-toggle').on('click', function(){
+		$('.navbar-fixed').toggleClass('open');
+	});
+	$(document).on('click', function(event) {
+	  if (!$(event.target).closest('.navbar-wrapper').length) {
+	   $('.navbar-fixed').removeClass('open');
+	  }
+	});
+});	

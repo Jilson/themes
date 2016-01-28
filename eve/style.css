@@ -53,7 +53,8 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 .dropdown-menu .inner-dropdown {    background: #EBD4F7;display:none; list-style:none;padding: 0;margin: 0;    border-top: 1px solid #AD91BC; border-bottom: 1px solid #AD91BC;   padding-left: 15px;}
 .dropdown-menu .inner-dropdown>li>a { display: block; padding: 5px 20px;  text-decoration: none; letter-spacing: .025em; font-family: 'Brandon Grot W01 Medium'; font-size: 13px; color: #393282 !important; text-transform: uppercase;}
 
-
+.navbar-toggle {border:1px solid #000;}
+.navbar-toggle .icon-bar {background: #000;}
 
 /* Feature */ 
 .feature {position: relative;}
@@ -101,6 +102,7 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 
 
 /* Pagination */
+.paginate {width: 100%;float: left; overflow: hidden;margin-bottom: 30px;}
 .paginate .page-numbers {  color: #2A2A2A ;  position: relative; float: left; padding: 6px 12px; margin-left: -1px; line-height: 1.42857143;  text-decoration: none; background-color: #fff; border: 1px solid #ddd;}
 .paginate .page-numbers.current { background: #2A2A2A; color: #fff;  }
 .paginate .page-numbers:hover {background: #2A2A2A; color: #fff;}
@@ -108,6 +110,7 @@ body {font-family: 'Hind', sans-serif;background: #f1f1f1;color: #444;}
 .pagination {width: 100%;}
 
 /* Sidebar */
+.sidebar {overflow: hidden;}
 .widget { background: #fff; padding: 30px; margin-bottom: 30px;   border-radius: 3px; }
 .widget :last-child { margin-bottom: 0; }
 .widget .meta-date { font-size: 12px; color: #999; }
@@ -208,11 +211,7 @@ blockquote.aligncenter, img.aligncenter, .wp-caption.aligncenter { margin-top: 7
 
 }
 @media only screen and (max-width: 995px) {
-.navbar-toggle {display: block;}
-.navbar-default {top: 0;}
-.navbar-header {float: right;}
-.navbar-side {position:fixed;padding: 50px;top: 0;right: -400px;bottom: 0;width: 400px;background: #000;transition: right .35s ease-in-out;}
-.navbar-side.open {right: 0;display: block;}
+
 
 .navbar-side .navbar-nav>li {float: none;}
 
@@ -223,8 +222,15 @@ blockquote.aligncenter, img.aligncenter, .wp-caption.aligncenter { margin-top: 7
 }
 
 @media only screen and (max-width: 767px) {
-
-
+.navbar-toggle {display: block;}
+.navbar-default {top: 0;}
+.navbar-header {float: right;}
+.navbar-side.open {right: 0;display: block;}
+.admin-bar .navbar-fixed {padding-top: 100px;}
+.navbar-fixed {padding-top: 50px;position: fixed;top: 0;bottom: 0;right: -300px;width: 300px;background: #111; -webkit-transition: all 0.1s ease-in; -moz-transition: all 0.1s ease-in; -ms-transition: all 0.1s ease-in; -o-transition: all 0.1s ease-in; transition: all 0.1s ease-in; }
+.navbar-fixed.open {right: 0;}
+.navbar-fixed .navbar-nav {margin: 0;}
+.navbar-nav>li>a, .dropdown-menu>li>a {background: #fff;}
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {

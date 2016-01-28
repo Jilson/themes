@@ -13,17 +13,18 @@
 <section class="section-content">
 	<div class="container clearfix">
 		<div class="content-primary col-md-8">
-		<div class="post-meta">
-		<div class="authorInfo">
-			<div class="info">
-				<h2>About the author <?php echo $curauth->nickname; ?></h2>
-				<span><?php echo $curauth->user_description; ?></span>
+			<div class="post-meta">
+				<div class="authorInfo">
+					<div class="info">
+						<h2>About the author <?php echo $curauth->nickname; ?></h2>
+						<span><?php echo $curauth->user_description; ?></span>
+					</div>
+					<div class="author-image">
+					</div>
+				</div>
+			<h1 class="postby">Posts by <?php echo $curauth->nickname; ?></h1>
 			</div>
-			<div class="author-image">
-			</div>
-		</div>
-		<h1 class="postby">Posts by <?php echo $curauth->nickname; ?></h1>
-		</div>
+		<?php get_search_form( ); ?>
 		<div class="loop-container">
 			<?php get_template_part('loop'); ?>
 		</div>
