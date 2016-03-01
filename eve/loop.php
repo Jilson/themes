@@ -50,6 +50,7 @@
 
 	) );
 	?>
+	<?php previous_posts_link(); ?>
 </div>
 <?php endif;  ?>				
 
