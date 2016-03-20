@@ -3,6 +3,7 @@
 add_filter('widget_text', 'do_shortcode');
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'automatic-feed-links' );
+remove_action('wp_head', 'wp_generator');
 require_once('includes/wp_bootstrap_navwalker.php');
 
 /*** Google Authorship ***/
