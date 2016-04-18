@@ -15,7 +15,7 @@ add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 
 add_action( 'after_setup_theme', 'baw_theme_setup' );
 function baw_theme_setup() {
-  add_image_size( 'blog-thumb', 795, 300, true ); // (cropped)
+  add_image_size( 'thumb825x450', 825, 450, true ); // (cropped)
 }
 
 // Add default theme options page
@@ -78,9 +78,11 @@ function my_ajax_pagination() {
         echo 'Sorry, no posts were found!';
     }
     else {
+        $i = 0;
         while ( $posts->have_posts() ) { 
+            $i++; 
             $posts->the_post();
-            get_template_part('loop', 'ajax');
+            include( locate_template( 'loop.php' ) );
         }
     }
     
@@ -102,6 +104,41 @@ function my_ajax_pagination() {
 function my_image_size_override() {
     return array( 795, 300 );
 }
+
+/* Limit Text */
+function limit_text($text, $limit) {
+      if (str_word_count($text, 0) > $limit) {
+          $words = str_word_count($text, 2);
+          $pos = array_keys($words);
+          $text = substr($text, 0, $pos[$limit]) . '...';
+      }
+      return $text;
+    }
+    
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
+}
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+// Remove issues with prefetching adding extra views
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 /*** Sidebars ***/
 if (function_exists('register_sidebar')) {

@@ -9,10 +9,28 @@
 </header>
 <section class="section-content">
 	<div class="container clearfix">
-		<div class="content-primary col-md-8">
-			<?php get_search_form( ); ?>
-			<div class="loop-container">
-				<?php get_template_part('loop'); ?>
+		<div class="content-primary col-md-9">
+			
+			<div class="loop-container row">
+				<?php if ( have_posts() ) : $i = 0; while ( have_posts() ) : $i++; the_post(); ?>
+				<?php include( locate_template( 'loop.php' ) ); ?>
+				<?php endwhile; ?>
+				<div class="paginate col-md-12">
+					<?php
+					global $wp_query;	
+					$big = 999999999;
+					echo paginate_links( array(
+						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+						'format' => '?page=%#%',
+						'current' => max( 1, get_query_var('paged') ),
+						'total' => $wp_query->max_num_pages,
+						'prev_next' => false,
+
+
+					) );
+					?>
+				</div>
+				<?php endif;  ?>
 			</div>
 			<?php wp_reset_query(); ?>
 		</div>
