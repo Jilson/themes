@@ -61,7 +61,7 @@
         <section class="footer-copyright">
         	<div class="container clearfix">
             	<div class="col-md-12">
-					<p>Copyright &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | <a href="http://www.westcounty.com/web-services/" title="Web Design & Development by West County" target="_blank">Web Development</a> By <a href="http://www.westcounty.com" title="West County Santa Rosa" target="_blank">West County</a></p>
+					<p>Copyright &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | <a href="http://www.westcounty.com/web-services/" title="Web Design & Development by West County" target="_blank">Web Development</a> By <a href="http://www.westcounty.com" title="West County Net Santa Rosa" target="_blank">West County Net</a></p>
                 </div>
             </div>
         </section><!-- end footer-copyright -->
