@@ -6,6 +6,15 @@ add_theme_support( 'automatic-feed-links' );
 remove_action('wp_head', 'wp_generator');
 require_once('includes/wp_bootstrap_navwalker.php');
 
+//Include all files in the post-types and taxonomies folder
+
+foreach ( glob(get_template_directory() . '/post-types/*.php') as $post_type ) {
+    require_once $post_type;
+}
+foreach ( glob(get_template_directory() . '/taxonomies/*.php') as $taxonomy ) {
+    require_once $taxonomy;
+}
+
 /*** Google Authorship ***/
 add_action('wp_head', 'add_google_rel_author');
 function add_google_rel_author() { echo '<link rel="author" href="" />'; }
@@ -26,119 +35,20 @@ if( function_exists('acf_add_options_page') ) {
 // Enqueue styles and scripts
 function theme_name_scripts() {
 
-    
     wp_enqueue_style( 'style-slick', '//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css' );
     wp_enqueue_style( 'style-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
     wp_enqueue_style( 'style-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-    wp_dequeue_script( 'jquery' );
-
-    wp_enqueue_script( 'jquery_new', '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.5', true );
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), '3.2.0', true );
-    wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/jquery.touchSwipe.min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'customJS', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'respond', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js', array(), '1.4.2', true );
     wp_enqueue_script( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js', array(), '1.5.7', true );
-    wp_enqueue_script( 'ajax-pagination', get_template_directory_uri() . '/js/ajax-pagination.js', array('jquery'), '1.0.0', true );
-    wp_localize_script( 'ajax-pagination', 'ajaxpagination', array('ajaxurl' => admin_url( 'admin-ajax.php' ),'query_vars' => json_encode( $wp_query->query )));
 
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
-
-/* Pagination */
-add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
-add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
-
-function my_ajax_pagination() {
-    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
-
-
-    $query_vars['paged'] = $_POST['page'];
-    $query_vars['post_status'] = 'publish';
-
-    if(isset($_POST['search']) && !empty($_POST['search'])) {
-     $query_vars['s'] = $_POST['search'];
-    }
-    if(isset($_POST['cat']) && !empty($_POST['cat'])) {
-     $query_vars['cat'] = $_POST['cat'];
-    }
-    if(isset($_POST['auth']) && !empty($_POST['auth'])) {
-     $query_vars['author'] = $_POST['auth'];
-    }
-
-    $posts = new WP_Query( $query_vars );
-    $GLOBALS['wp_query'] = $posts;
-
-    add_filter( 'editor_max_image_size', 'my_image_size_override' );
-
-    if( ! $posts->have_posts() ) { 
-        echo 'Sorry, no posts were found!';
-    }
-    else {
-        $i = 0;
-        while ( $posts->have_posts() ) { 
-            $i++; 
-            $posts->the_post();
-            include( locate_template( 'loop.php' ) );
-        }
-    }
-    
-
-    global $wp_query;
-    $big = 999999999;
-    echo '<div class="paginate">';
-    echo paginate_links( array(
-        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-        'format' => '?page=%#%',
-        'current' => max( 1, get_query_var('paged') ),
-        'total' => $wp_query->max_num_pages,
-        'prev_next' => false
-    ) );
-    echo '</div>';
-    die();
-}
-
-function my_image_size_override() {
-    return array( 795, 300 );
-}
-
-/* Limit Text */
-function limit_text($text, $limit) {
-      if (str_word_count($text, 0) > $limit) {
-          $words = str_word_count($text, 2);
-          $pos = array_keys($words);
-          $text = substr($text, 0, $pos[$limit]) . '...';
-      }
-      return $text;
-    }
-    
-function getPostViews($postID){
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-        return "0 View";
-    }
-    return $count.' Views';
-}
-function setPostViews($postID) {
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    }else{
-        $count++;
-        update_post_meta($postID, $count_key, $count);
-    }
-}
-// Remove issues with prefetching adding extra views
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 /*** Sidebars ***/
 if (function_exists('register_sidebar')) {

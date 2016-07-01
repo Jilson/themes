@@ -10,10 +10,9 @@
 <section class="section-content">
 	<div class="container clearfix">
 		<div class="content-primary col-md-9">
-			
 			<div class="loop-container row">
-				<?php if ( have_posts() ) : $i = 0; while ( have_posts() ) : $i++; the_post(); ?>
-				<?php include( locate_template( 'loop.php' ) ); ?>
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php include( locate_template( 'loop.php' ) ); ?>
 				<?php endwhile; ?>
 				<div class="paginate col-md-12">
 					<?php
@@ -25,8 +24,6 @@
 						'current' => max( 1, get_query_var('paged') ),
 						'total' => $wp_query->max_num_pages,
 						'prev_next' => false,
-
-
 					) );
 					?>
 				</div>
