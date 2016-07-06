@@ -2,28 +2,33 @@
     	<section class="footer-information">
     		<div class="container clearfix">
 
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section icon-left">
-    				<i class="fa fa-phone"></i>
-					<h3 class="tt-u"><a href="tel:<?php the_field('phone', 'options'); ?>" title="Call Atlas HVAC"><?php the_field('phone', 'options'); ?></a></h3>
+    			<div class="col-md-3 col-sm-6 footer-information-section">
+					<h3 class="tt-u"><a href="tel:<?php the_field('phone', 'options'); ?>" title="Call <?php echo bloginfo('name'); ?>"><?php the_field('phone', 'options'); ?></a></h3>
     				<p><?php the_field('hours', 'options'); ?></p>
     			</div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section icon-left">
-    				<i class="fa fa-envelope"></i>
-					<h3 class="tt-u"><a href="mailto:<?php the_field('email', 'options'); ?>" title="Email Atlas HVAC">Email Us</a></h3>
+    			<div class="col-md-3 col-sm-6 footer-information-section">
+					<h3 class="tt-u"><a href="mailto:<?php the_field('email', 'options'); ?>" title="Email <?php echo bloginfo('name'); ?>">Email Us</a></h3>
     				<p>Have questions? don't hesitate to ask us!</p>
     			</div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section icon-left">
-    				<i class="fa fa-map-marker"></i>
+    			<div class="col-md-3 col-sm-6 footer-information-section">
 					<h3 class="tt-u"><a href="/contact-us" title="View our location">Location</a></h3>
-    				<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress"><?php the_field('street', 'options'); ?></span><br /><span itemprop="addressLocality"><?php the_field('city', 'options'); ?></span>, <span itemprop="addressRegion"><?php the_field('state', 'options'); ?></span> <span itemprop="postalCode"><?php the_field('zip', 'options'); ?></span></address>
+    				<?php  
+                        $address =  get_field('address', 'options'); 
+                        $addressExplode = explode(',', $address[address]);
+                        $stateExplode = explode(' ', $addressExplode[2]); 
+                        $street = $addressExplode[0];
+                        $city = $addressExplode[1];
+                        $state = $stateExplode[1];
+                        $zip = $stateExplode[2];
+                    ?>
+                    <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress"><?php echo $street; ?></span><span itemprop="addressLocality"><?php echo $city; ?></span>, <span itemprop="addressRegion"><?php echo $state; ?></span> <span itemprop="postalCode"><?php echo $zip; ?></span></address>
     			</div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section icon-left">
-    				<i class="fa fa-question-circle"></i>
+    			<div class="col-md-3 col-sm-6 footer-information-section">
 					<h3 class="tt-u"><a href="/faq" title="Read Frequently Asked Questions">FAQS</a></h3>
 					<p>Read answers to commonly asked questions</p>
     			</div>
     			<div class="col-md-12 clearfix"><div class="border-bottom"></div></div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section">
+    			<div class="col-md-3 col-sm-6 footer-information-section">
     				<h3 class="tt-u">Service Areas</h3>
     				<?php $args = array( 'post_type' => 'areas', 'posts_per_page' => -1 );
 						$areas = new WP_Query( $args );
@@ -37,21 +42,21 @@
         				</p>
         			<?php endif; wp_reset_postdata();  ?>
     			</div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section">
-					<h3 class="tt-u">About Atlas</h3>
-					<p>Atlas Heating and Air Conditioning Inc. is dedicated to providing consumers with quality, value and customer satisfaction.</p>
+    			<div class="col-md-3 col-sm-6 footer-information-section">
+					<h3 class="tt-u">About <?php echo bloginfo('name'); ?></h3>
+					<p></p>
     			</div>
     			<div class="clearfix-sm"></div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section">
+    			<div class="col-md-3 col-sm-6 footer-information-section">
 					<h3 class="tt-u">Our Vision</h3>
-					<p>Atlas Heating and Air Conditioning Inc. strives to provide the highest quality HVAC service to Sonoma County.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium egestas augue vel dictum.</p>
     			</div>
-    			<div class="col-md-3 col-xxs col-sm-6 col-xs-6 footer-information-section">
+    			<div class="col-md-3 col-sm-6 footer-information-section">
 					<h3 class="tt-u">Connect</h3>
 					<ul>
-						<li><a target="_blank" href="<?php the_field('facebook', 'options'); ?>" title="Atlas Heating and Air Conditioning on Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a target="_blank" href="<?php the_field('google', 'options'); ?>" title="Atlas Heating and Air Conditioning on Google Plus"><i class="fa fa-google-plus"></i></a></li>
-						<li><a target="_blank" href="<?php the_field('yelp', 'options'); ?>" title="Atlas Heating and Air Conditioning on Yelp"><i class="fa fa-yelp"></i></a></li>
+						<li><a target="_blank" href="<?php the_field('facebook', 'options'); ?>" title="<?php echo bloginfo('name'); ?> on Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a target="_blank" href="<?php the_field('google', 'options'); ?>" title="<?php echo bloginfo('name'); ?> on Google Plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a target="_blank" href="<?php the_field('yelp', 'options'); ?>" title="<?php echo bloginfo('name'); ?> on Yelp"><i class="fa fa-yelp"></i></a></li>
 						
 					</ul>
     			</div>
