@@ -18,11 +18,12 @@ $(document).ready(function(){
 });	
 $(document).ready(function(){
 	$('button.navbar-toggle').on('click', function(){
-		$('.navbar-fixed').toggleClass('open');
+		$('.navbar-wrapper').toggleClass('open');
+		$(this).toggleClass('open');
 	});
 	$(document).on('click', function(event) {
-	  if (!$(event.target).closest('.navbar-wrapper').length) {
-	   $('.navbar-fixed').removeClass('open');
+	  if (!$(event.target).closest('.header').length) {
+	   $('.navbar-wrapper').removeClass('open');
 	  }
 	});
 });	

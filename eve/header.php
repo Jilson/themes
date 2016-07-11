@@ -13,21 +13,27 @@
 <?php include_once(TEMPLATEPATH . "/includes/analytics.php") ?>
 </head>
 <body <?php body_class($class); ?> itemscope itemtype="http://schema.org/WebPage">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-        	<div class="container clearfix">
-				<div class="branding col-md-3">
-					<h2 class="logo"><a href="/"><?php if(get_field('logo', 'option')) { $image = get_field('logo', 'option'); ?><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /><?php } else { bloginfo('name'); } ?></a></h2>
-                </div>
-				<nav class="navbar-wrapper navbar-static-top col-md-9" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
+    <header class="header clearfix" itemscope itemtype="http://schema.org/WPHeader">
+        	<div class="container-fluid clearfix">
+				<div class="branding">
+					<div class="logo">
+						<a href="/" title="<?php bloginfo('name'); ?>">
+							<?php if(get_field('logo', 'option')) : $image = get_field('logo', 'option'); ?>
+								<img class="img-responsive" src="<?php echo $image['url']; ?>" alt="<?php bloginfo('name'); ?> Logo" />
+							<?php else : ?>
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/westcounty_logo_final.png" />	
+							<?php endif; ?>
+						</a>
 					</div>
-					<?php  wp_nav_menu( array( 'menu' => 'Navigation', 'theme_location' => 'Navigation', 'depth' => 3, 'container' => 'div', 'container_class' => 'navbar-fixed', 'container_id' => 'bs-example-navbar-collapse-1', 'menu_class' => 'nav navbar-nav', 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker'  => new wp_bootstrap_navwalker() ) ); ?>
+                </div>
+				<nav class="navbar-wrapper" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					<?php  wp_nav_menu( array( 'menu' => 'Navigation', 'theme_location' => 'Navigation', 'depth' => 3, 'menu_class' => 'nav navbar-nav', 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker'  => new wp_bootstrap_navwalker() ) ); ?>
+					<button type="button" class="navbar-toggle">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
 				</nav>
             </div>
     </header>

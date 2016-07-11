@@ -58,21 +58,19 @@ h1, h2, h3, h4, h5 { margin-top: 0; }
 
 /* Header */
 .header {background: #fff;border-bottom:1px solid #444;}
+.header .branding { float: left; padding: 10px 0; max-width: 300px; }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {background:none;}
-.nav>li>a {padding: 20px 15px;}
-.navbar-nav>li>a, .dropdown-menu>li>a  {text-decoration: none;letter-spacing: .025em; font-size: 18px; color: #111 !important; text-transform: uppercase;} 
-.navbar-nav>li.dropdown .arrow-down {top: 0;cursor:pointer;z-index:99;display: block; text-align: center; position: absolute; right: 0; height: 42px; width: 42px; padding: 10px;}
-.navbar-nav>li.dropdown .arrow-down.clicked .fa {-ms-transform: rotate(90deg);  -webkit-transform: rotate(90deg);   transform: rotate(90deg);}
-.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {background-color:#e3edc2;}
-.dropdown-menu>li>a {padding: 10px 20px;}
-.dropdown .dropdown {width: 100%;}
-.dropdown .dropdown>a {padding: 10px 42px 10px 20px;}
-.dropdown-menu .inner-dropdown {    background: #EBD4F7;display:none; list-style:none;padding: 0;margin: 0;    border-top: 1px solid #AD91BC; border-bottom: 1px solid #AD91BC;   padding-left: 15px;}
-.dropdown-menu .inner-dropdown>li>a { display: block; padding: 5px 20px;  text-decoration: none; letter-spacing: .025em; font-family: 'Brandon Grot W01 Medium'; font-size: 13px; color: #393282 !important; text-transform: uppercase;}
-
-.navbar-toggle {border:1px solid #000;}
-.navbar-toggle .icon-bar {background: #000;}
+.header .navbar-wrapper { overflow: hidden; }
+.header .navbar-wrapper .menu-navigation-container { float: right; margin-top: 20px; }
+.header .navbar-nav { margin: 0; }
+.header .navbar-nav>li>a, .dropdown-menu>li>a  {text-decoration: none; font-size: 18px; color: #111; padding: 10px 24px;} 
+.header .navbar-nav>li>a:active, 
+.header .navbar-nav>li>a:focus { background: none; }
+.header .dropdown-menu>li>a {padding: 10px 20px;}
+.header .dropdown .dropdown {width: 100%;}
+.header .dropdown .dropdown>a {padding: 10px 42px 10px 20px;}
+.header .dropdown-menu .inner-dropdown {    background: #EBD4F7;display:none; list-style:none;padding: 0;margin: 0;    border-top: 1px solid #AD91BC; border-bottom: 1px solid #AD91BC;   padding-left: 15px;}
+.header .dropdown-menu .inner-dropdown>li>a { display: block; padding: 5px 20px;  text-decoration: none; letter-spacing: .025em; font-family: 'Brandon Grot W01 Medium'; font-size: 13px; color: #393282 !important; text-transform: uppercase;}
 
 /* Feature */ 
 .feature {position: relative;}
@@ -274,8 +272,33 @@ img.aligncenter, .wp-caption.aligncenter { margin-top: 7px; margin-bottom: 7px; 
 }
 @media only screen and (max-width: 995px) {
 
+.header .navbar-wrapper {position: fixed; top: 0;bottom: 0; height: 100%; min-height: 100%; right: -478px; width: 478px; overflow: visible; z-index: 99; background: #343434; -webkit-transition: all 0.1s ease-in; -moz-transition: all 0.1s ease-in; -ms-transition: all 0.1s ease-in; -o-transition: all 0.1s ease-in; transition: all 0.1s ease-in;  }
+.header .navbar-wrapper.open { right: 0; display: block; }
+.header .navbar-toggle { position: absolute; top: 0; left:-42px; padding: 0 7px; display: block; border: none; z-index: 999; margin: 0; background: #343434; width: 42px; height: 42px; border-radius: 0; }
+.header .navbar-toggle { position: absolute; top: 0; left:-42px; padding: 0 7px; display: block; border: none; z-index: 999; margin: 0; background: #343434; width: 42px; height: 42px; border-radius: 0; }
+.header .navbar-toggle { position: absolute; top: 0; left:-42px; padding: 0 7px; display: block; border: none; z-index: 999; margin: 0; background: #343434; width: 42px; height: 42px; border-radius: 0; }
+.header .navbar-toggle { position: absolute; top: 0; left:-42px; padding: 0 7px; display: block; border: none; z-index: 999; margin: 0; background: #343434; width: 42px; height: 42px; border-radius: 0; }
+.header .navbar-toggle .icon-bar {background: #eaeaea; height: 4px; width: 30px; transition: all .2s ease-in-out; }
+.header .navbar-toggle .icon-bar+.icon-bar { margin-top: 3px; }
+.header .navbar-toggle.open .icon-bar:nth-child(2) {  }
+.header .navbar-toggle.open .icon-bar:nth-child(3) { width: 24px; }
+.header .navbar-toggle.open .icon-bar:nth-child(4) { width: 18px; }
+/* Alternate Arrow close
+.navbar-toggle.open .icon-bar:nth-child(2) { transform: rotate(30deg); }
+.navbar-toggle.open .icon-bar:nth-child(3) { width: 24px; }
+.navbar-toggle.open .icon-bar:nth-child(4) { transform: rotate(-30deg); }
+*/
+.header .navbar-wrapper .menu-navigation-container { float: none; overflow-y: auto; margin: 0; }
+.header .navbar-nav { overflow-y: scroll; position: absolute; height: 100%; width: 100%; }
+.header .navbar-nav>li { float: none; }
+.header .navbar-nav>li+li { border-top: 1px solid #282828; }
+.header .navbar-nav>li>a, .dropdown-menu>li>a { font-size: 16px; color: #eaeaea; padding: 11px 24px; font-weight: bold; }
 
-.navbar-side .navbar-nav>li {float: none;}
+.header .branding { padding: 5px 0; }
+.header .branding img { max-height: 32px; }
+
+.admin-bar .header .navbar-wrapper { top: 32px; }
+.admin-bar .header .navbar-nav { padding-bottom: 32px; }
 
 }
 @media only screen and (min-width: 768px) and (max-width: 995px) {
@@ -284,15 +307,11 @@ img.aligncenter, .wp-caption.aligncenter { margin-top: 7px; margin-bottom: 7px; 
 }
 
 @media only screen and (max-width: 767px) {
-.navbar-toggle {display: block;}
-.navbar-default {top: 0;}
-.navbar-header {float: right;}
-.navbar-side.open {right: 0;display: block;}
-.admin-bar .navbar-fixed {padding-top: 100px;}
-.navbar-fixed {padding-top: 50px;position: fixed;top: 0;bottom: 0;right: -300px;width: 300px;background: #111; -webkit-transition: all 0.1s ease-in; -moz-transition: all 0.1s ease-in; -ms-transition: all 0.1s ease-in; -o-transition: all 0.1s ease-in; transition: all 0.1s ease-in; }
-.navbar-fixed.open {right: 0;}
-.navbar-fixed .navbar-nav {margin: 0;}
-.navbar-nav>li>a, .dropdown-menu>li>a {background: #fff;}
+.admin-bar .header .navbar-wrapper { top: 46px; }
+.admin-bar .header .navbar-nav { padding-bottom: 46px; }
+
+.header .navbar-wrapper { right: -378px; width: 378px; }
+
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -302,5 +321,6 @@ img.aligncenter, .wp-caption.aligncenter { margin-top: 7px; margin-bottom: 7px; 
 
 @media only screen and (max-width: 479px) {
 
-
+.header .navbar-wrapper { right: -278px; width: 278px; }
+.header .navbar-nav>li>a { padding: 11px 18px; }
 }
