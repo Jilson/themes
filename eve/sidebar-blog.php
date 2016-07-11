@@ -19,10 +19,10 @@
 	<div class="widget recent-posts">
 		<div class="widget-title"><h3>Recent Posts</h3></div>
 		<?php $args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
-		$posts = new WP_Query( $args );
-		if ( $posts->have_posts() ) : ?>
+		$posts_recent = new WP_Query( $args );
+		if ( $posts_recent->have_posts() ) : ?>
 		<ul>
-			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+			<?php while ( $posts_recent->have_posts() ) : $posts_recent->the_post(); ?>
 				<li>
 					
 					<div class="widget-post-thumbnail"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php if(has_post_thumbnail()) { the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); } ?></a></div>
@@ -36,26 +36,4 @@
 		</ul>
 		<?php endif; wp_reset_postdata(); ?>				
 	</div>
-	<div class="widget recent-posts">
-		<div class="widget-title"><h3>Popular Posts</h3></div>
-		<?php $args = array( 'post_type' => 'post', 'posts_per_page' => 3, 'meta_key' => 'post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC' );
-		$posts = new WP_Query( $args );
-		if ( $posts->have_posts() ) : ?>
-		<ul>
-			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
-				<li>
-					
-					<div class="widget-post-thumbnail"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php if(has_post_thumbnail()) { the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); } ?></a></div>
-					<div class="widget-post-content">
-						<h4><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
-						<cite><?php the_time('F d, Y'); ?></cite>
-					</div>
-					
-				</li>		
-			<?php endwhile; ?>
-		</ul>
-		<?php endif; wp_reset_postdata(); ?>				
-	</div>
-	
-	
 </aside>

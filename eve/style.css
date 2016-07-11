@@ -23,7 +23,7 @@ font-family: 'Hind', sans-serif;
 .mb60 { margin-bottom: 60px !important; }
 
 body {font-family: 'Montserrat', sans-serif; background: #fff; color: #444; }
-a { color: #10508d; }
+a { color: #1290b1; }
 a:hover, a:focus, a:active { color: #009dae; }
 
 h1, h2, h3, h4, h5 { margin-top: 0; }
@@ -92,21 +92,32 @@ h1, h2, h3, h4, h5 { margin-top: 0; }
 .page-body-header #breadcrumbs {color: #fff;}
 
 /* Blog */
-.hentry, .post { margin-bottom: 40px; overflow:hidden;}
+.hentry, .post { margin-bottom: 20px; padding-bottom: 20px; overflow:hidden;}
 .article-inner { overflow: hidden;}
 
-.entry-title { font-size: 40px; margin-bottom: 10px;color: #323232;margin-top: 0; }
+.post-info { margin-bottom: 20px; }
 
-.post-meta { overflow: hidden; margin: 10px 0 10px;}
-.post-meta .meta { margin: 0; display: inline-block; float: left; font-size: 14px; color: #3b3b3b;}
+.entry-title { font-size: 40px; margin-bottom: 20px; color: #323232; margin-top: 0; }
+
+.post-meta { float:left; padding: 6px 10px; background: #f2f2f2; }
+.post-meta .meta { margin: 0; display: inline-block; float: left; font-size: 16px; color: #3b3b3b;}
 .post-meta .meta .fa {color: #5f82ba;}
 .post-meta .meta a { color: #3b3b3b;}
 .post-meta .meta + .meta {padding-left: 10px;margin-left: 10px; border-left: 1px solid #ECECEC;}
 .post-meta .meta i { margin-right: 3px; color: #6e6e6e; font-size: 15px; }
 
-.post-feature-image { margin-bottom: 20px; }
-.post-feature-image img {    -webkit-transition: opacity 0.2s linear;-moz-transition: opacity 0.2s linear;-o-transition: opacity 0.32s linear;transition: opacity 0.2s linear; }
-.post-feature-image img:hover {opacity: .8; }
+.post-feature-image { float: left; max-width: 300px; margin-bottom: 20px; margin-right: 20px; margin-top: 8px; }
+.post-feature-image img { width: 100%; }
+.post-feature-image img:hover { opacity: .8; }
+
+.loop-container .post { border-bottom: 1px solid #e2e2e2; }
+
+.article-loop-content { overflow: hidden; }
+.article-loop-content p {font-size: 16px;color: #323232; line-height: 1.7; margin: 0; }
+
+.first-post .article-loop-content p { font-size: 20px; color: #323232;}
+.first-post .article-loop-content { overflow: visible; }
+.first-post .post-feature-image { width: 100%; max-width: 100%; margin-right: 0; }
 
 .continue-reading { font-size: 14px; font-weight: 700; }
 
@@ -118,24 +129,22 @@ h1, h2, h3, h4, h5 { margin-top: 0; }
 .post-tags { border-top: 1px solid #ededed; padding-top: 15px; margin-bottom: 15px; }
 .next-prev-posts { margin-bottom: 30px; font-size: 16px; }
 
-#loader {background: #fff;text-align: center;padding: 30px 0;}
-
-.first-post .article-loop-content .entry-title, .article-loop-content .entry-title  {margin: 0;}
-
-.first-post .article-loop-content .entry-title a {font-size: 40px;color: #323232; line-height: 38px;}
-.article-loop-content .entry-title  {font-size: 24px;color: #323232; line-height: 30px;}
-.article-loop-content .entry-title a {font-size: 24px;color: #323232; line-height: 30px;}
-.first-post .article-loop-content p {font-size: 20px;color: #323232; line-height: 30px;}
-.article-loop-content p {font-size: 16px;color: #323232; line-height: 22px;}
+#loader { background: #fff;text-align: center;padding: 30px 0; }
 
 .related-posts-container {width: 100%;float: left;padding: 50px 0 0;}
+.related-posts .related-title { font-size: 30px; }
+.related-posts .post .entry-title { font-size: 22px; }
+.related-posts .post .post-meta .meta { font-size: 12px; }
+.related-posts .post .post-feature-image { width: 100%; max-width: 100%; }
+.related-posts .post .article-loop-content { overflow: visible; }
+.related-posts .post .article-loop-content p { font-size: 14px; }
 
 /* Share */
-.share {list-style:none;padding: 0;margin: 0 0 20px 0;width: 100%;float: left;}
+.share {list-style:none;padding: 0;margin:0; float: right;}
 .share li {float: left; margin-bottom: 0;}
 .share li + li {margin-left: 5px;}
-.share li a {color: #fff; border-radius:50%;font-size: 16px;width: 30px;height: 30px;display: table;text-align: center;}
-.share li a .fa {display: table-cell;vertical-align: middle;}
+.share li a {display: block; color: #fff;font-size: 16px;text-align: center; padding: 6px 10px;}
+.share li a .fa {vertical-align: middle;}
 .share li a.facebook {background: #5C72A3; }
 .share li a.twitter {background: #48C0F2; }
 .share li a.google-plus {background: #C85A41; }
