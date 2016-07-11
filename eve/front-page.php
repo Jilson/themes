@@ -30,7 +30,7 @@
         <section class="section-content">
         	<div class="container clearfix">
             	<div class="content-primary col-md-9">
-					<h1><?php bloginfo('blogname'); ?><span class="small-title"><?php bloginfo('description'); ?></span></h1>
+					<h1><?php bloginfo('blogname'); ?></h1>
 					<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 						<?php the_content(); ?>
 					<?php endwhile; endif; ?>
